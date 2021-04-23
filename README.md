@@ -1,4 +1,7 @@
 # Portfolio-neural-network-
 Portfolio optimized with neural networks 
 
-## run streamlit run new.py
+## Run the app
+
+```
+$ streamlit run new.py
