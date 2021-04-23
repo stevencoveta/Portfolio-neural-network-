@@ -1,0 +1,1 @@
+'BA', 'BBY', 'APH', 'BAC', 'ARE', 'BKNG', 'BR', 'BDX', 'AWK', 'AVY', 'ATVI', 'AON', 'AZO', 'AXP', 'BEN', 'BSX', 'AVB', 'AOS', 'ATO', 'AVGO', 'ANTM', 'BLL', 'BK', 'APA', 'APD', 'BAX', 'BMY', 'BWA', 'BLK'
