@@ -69,7 +69,7 @@ def cache_comp(sp,company):
         key = f"{i}.csv"
         obj = s3c.get_object(Bucket= "csv-companies" , Key = key)
         df = pd.read_csv(io.BytesIO(obj['Body'].read()), encoding='utf8')
-        df.columns = ["Date",'high','low', 'open', 'close', 'volume']
+        df.columns = ["Date",'open','high', 'low', 'close', 'volume']
         df = df.set_index("Date",drop= True)  
         print(df) 
         #df = pd.read_csv(file)
