@@ -1,0 +1,17 @@
+pandas==0.25.1
+pandas-datareader==0.8.1
+numpy==1.18.1
+sklearn==0.0
+technical_indicators_lib==0.0.2
+tensorflow==2.4.1
+matplotlib==3.1.0
+datetime
+streamlit==0.80.0
+stqdm==0.0.3
+pathlib2==2.3.4
+plotly==4.14.3
+boto3==1.12.43
+keras
+time 
+os 
+io
