@@ -33,7 +33,7 @@ from ta import *
 s3c = boto3.client('s3', aws_access_key_id='', aws_secret_access_key='')
 s3c._request_signer.sign = (lambda *args, **kwargs: None)
 
-@st.cache(allow_output_mutation=True)
+
 def company():
     company = []
     with open('names.txt', 'r') as filehandle:
