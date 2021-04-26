@@ -25,7 +25,7 @@ import boto3
 from chuncks import * 
 from models import *
 from ta import *
-
+import io
 
 
 
