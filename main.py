@@ -71,7 +71,7 @@ def cache_comp(sp,company):
         df = pd.read_csv(io.BytesIO(obj['Body'].read()), encoding='utf8')
         df.columns = ["Date",'open','high', 'low', 'close', 'volume']
         df = df.set_index("Date",drop= True)  
-        print(df) 
+        print(df.shape) 
         #df = pd.read_csv(file)
         #df = df.set_index("Date")
         dat = get_df(df,liss)
