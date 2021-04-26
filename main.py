@@ -112,7 +112,7 @@ def main_model(close,target,model):
     pred = []
     num=0.7
     for i in stqdm(range(close.shape[1])):
-
+        print("training",i)
         scale = StandardScaler()
         scaler = StandardScaler()
     
