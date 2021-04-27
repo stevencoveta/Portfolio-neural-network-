@@ -69,6 +69,8 @@ st.write("Chosen stocks",rand)
 sp = pd.read_csv("benchmark/sp500.csv")
 sp = sp.set_index("Date")
 
+epoc = st.sidebar.number_input("Input epochs training",1,300,2)
+
 @st.cache(allow_output_mutation=True)
 def cache_comp(sp,rand):
     data_shape = []
@@ -121,7 +123,7 @@ titles_companies = catching[4]
 select = st.sidebar.selectbox("Select nn model",["BI-LSTM","LSTM"])
 
 @st.cache(allow_output_mutation=True)
-def main_model(close,target,model):
+def main_model(close,target,model,epoc):
     pred = []
     num=0.7
     for i in (range(close.shape[1])):
@@ -146,15 +148,15 @@ def main_model(close,target,model):
         X_train, y_train = train_chunck(X_train, y_train)
         X_test, y_test = test_chunck(X_test, y_test)
         if model == "BI-LSTM":
-            y_pred = model_bilstm_get_prediction(X_train,y_train,X_test,y_test)
+            y_pred = model_bilstm_get_prediction(X_train,y_train,X_test,y_test,epoc)
         elif model == "LSTM":
-            y_pred = lstm(X_train,y_train,X_test,y_test)
+            y_pred = lstm(X_train,y_train,X_test,y_test,epoc)
     
         pred.append(scale.inverse_transform(y_pred))
     return pred , y_test , X_test
 
 
-main_mod = main_model(close,target,select)
+main_mod = main_model(close,target,select,epoc)
 pred = main_mod[0]
 y_test = main_mod[1]
 X_test = main_mod[2]
