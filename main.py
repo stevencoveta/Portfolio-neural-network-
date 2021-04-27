@@ -48,7 +48,8 @@ numb = st.sidebar.number_input("Input randomly chosen number of stocks",1,30,4)
 rand = []
 for i in range(numb):
     rand.append(random.choice(company))
-
+    
+st.write("chosen stocks",rand)
 
 
 col1, col2 = st.beta_columns(2)
