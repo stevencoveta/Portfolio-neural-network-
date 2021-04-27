@@ -174,7 +174,7 @@ close_k[close_k == inf] = 0
 lookback_clusters = 30
 
 @st.cache(suppress_st_warning=True)
-def knn(lookback_clustersn, k ):
+def kmeans(lookback_clustersn, k ):
     kmeans = KMeans(n_clusters=k)
     clusters = []
     for i in stqdm(range(lookback_clusters,X_test.shape[0]),desc="Training KNN"):
@@ -189,7 +189,7 @@ def knn(lookback_clustersn, k ):
 list_tk = titles_companies
 
 kk = st.sidebar.slider("Number of Clusters",1,len(rand),2)
-kn = knn(lookback_clusters, kk)
+kn = kmeans(lookback_clusters, kk)
 
 clusters = kn[0]
 kmeans_labels_ = kn[1]
