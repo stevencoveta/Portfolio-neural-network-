@@ -28,7 +28,7 @@ from ta import *
 #from get_S3_data import * 
 
 
-
+st.set_page_config(layout="wide")
 
 s3c = boto3.client('s3', aws_access_key_id='', aws_secret_access_key='')
 s3c._request_signer.sign = (lambda *args, **kwargs: None)
@@ -49,7 +49,7 @@ for i in range(numb):
     rand.append(random.choice(company))
 
 
-st.set_page_config(layout="wide")
+
 col1, col2 = st.beta_columns(2)
 
 col1.header("Date Today")
