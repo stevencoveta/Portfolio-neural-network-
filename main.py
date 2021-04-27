@@ -42,7 +42,7 @@ def company():
 
 company = company()
 
-numb = st.sidebar.number_input("Input number",1,30,5)
+numb = st.sidebar.number_input("Input randomly chosen number of stocks",1,30,5)
 
 rand = []
 for i in range(numb):
