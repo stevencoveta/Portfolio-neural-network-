@@ -49,8 +49,6 @@ rand = []
 for i in range(numb):
     rand.append(random.choice(company))
     
-st.write("chosen stocks",rand)
-
 
 col1, col2 = st.beta_columns(2)
 
@@ -66,6 +64,7 @@ liss = [OBV() , CCI() , CHV(), CMF() , DPO(), EMA() , EMV() , MACD() ,MI(), PVT(
 st.title("Portfolio Allocator Neural Network")
 print("loading buckets")
 
+st.write("Chosen stocks",rand.values)
 
 sp = pd.read_csv("benchmark/sp500.csv")
 sp = sp.set_index("Date")
