@@ -213,7 +213,7 @@ ret_var["k"] = kmeans_labels_
 ret_var["companies"] = list_tk
 ret_var.columns = ["Returns","Variance","k","companies"]
 
-st.header("Knn Clusters")
+st.header("Kmeans Clusters")
 
 
 clusters_nav  = st.checkbox("Show companies names",False)
