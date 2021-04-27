@@ -15,7 +15,7 @@ from models import *
 
 
 
-def model_bilstm_get_prediction(X_train,y_train,X_test,y_test):
+def model_bilstm_get_prediction(X_train,y_train,X_test,y_test,epoc):
     
     callback = EarlyStopping(monitor='loss', patience=0,restore_best_weights=False)
     #random.seed(40)
@@ -33,7 +33,7 @@ def model_bilstm_get_prediction(X_train,y_train,X_test,y_test):
     model.add(Dense(1))
     #model.load_weights("models_weight/model.h5")
     model.compile(optimizer = "adam", loss ="mae",metrics =["accuracy"])
-    history = model.fit(X_train, y_train, epochs=3,  batch_size=64, validation_data=(X_test, y_test), callbacks=[callback])
+    history = model.fit(X_train, y_train, epochs=epoc,  batch_size=64, validation_data=(X_test, y_test), callbacks=[callback])
     #plt.plot(history.history["loss"])
     #plt.plot(history.history["val_loss"])
     
@@ -55,7 +55,7 @@ def autoencoder(X):
     encoder.summary()
     return encoder.predict(X)
 
-def lstm(X_train,y_train,X_test,y_test):
+def lstm(X_train,y_train,X_test,y_test,epoc):
     model = Sequential()
     model.add((LSTM(64, activation = "relu",input_shape=(X_train.shape[1],X_train.shape[2]),return_sequences= False,kernel_regularizer=keras.regularizers.l2(0.12))))
     model.add(keras.layers.BatchNormalization())
@@ -65,7 +65,7 @@ def lstm(X_train,y_train,X_test,y_test):
     model.add(Dense(1))
     #model.load_weights("models_1/model.h5")
     model.compile(optimizer = "adam", loss ="mae",metrics =["accuracy"])
-    history = model.fit(X_train, y_train, epochs=3,  batch_size=64, validation_data=(X_test, y_test))
+    history = model.fit(X_train, y_train, epochs=epoc,  batch_size=64, validation_data=(X_test, y_test))
     #plt.plot(history.history["loss"])
     #plt.plot(history.history["val_loss"])
     #plt.savefig('losses/losses_lstm.png')
