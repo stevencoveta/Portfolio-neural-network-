@@ -114,8 +114,8 @@ ohlcv = catching[2]
 data_shape = catching[3]
 titles_companies = catching[4]
 
-with open("titles_companies.txt", "w") as output:
-    output.write(str(titles_companies)[1:-1])
+#with open("titles_companies.txt", "w") as output:
+    #output.write(str(titles_companies)[1:-1])
 
 
 select = st.sidebar.selectbox("Select nn model",["BI-LSTM","LSTM"])
@@ -185,8 +185,8 @@ def knn(lookback_clustersn, k ):
     return clusters , kmeans.labels_
 
 
-list_tk = pd.read_csv("titles_companies.txt")
-
+#list_tk = pd.read_csv("titles_companies.txt")
+list_tk = titles_companies
 
 kk = st.sidebar.slider("Number of Clusters",1,len(rand),2)
 kn = knn(lookback_clusters, kk)
