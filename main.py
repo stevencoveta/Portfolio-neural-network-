@@ -124,7 +124,7 @@ select = st.sidebar.selectbox("Select nn model",["BI-LSTM","LSTM"])
 def main_model(close,target,model):
     pred = []
     num=0.7
-    for i in stqdm(range(close.shape[1])):
+    for i in (range(close.shape[1])):
 
         scale = StandardScaler()
         scaler = StandardScaler()
