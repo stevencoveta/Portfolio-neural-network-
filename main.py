@@ -64,7 +64,7 @@ liss = [OBV() , CCI() , CHV(), CMF() , DPO(), EMA() , EMV() , MACD() ,MI(), PVT(
 st.title("Portfolio Allocator Neural Network")
 print("loading buckets")
 
-st.write("Chosen stocks",rand.values)
+st.write("Chosen stocks",rand)
 
 sp = pd.read_csv("benchmark/sp500.csv")
 sp = sp.set_index("Date")
