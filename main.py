@@ -25,6 +25,7 @@ import boto3
 from chuncks import * 
 from models import *
 from ta import *
+import io
 #from get_S3_data import * 
 
 
