@@ -179,7 +179,7 @@ lookback_clusters = 30
 def kmeans(lookback_clustersn, k ):
     kmeans = KMeans(n_clusters=k)
     clusters = []
-    for i in stqdm(range(lookback_clusters,X_test.shape[0]),desc="Training KNN"):
+    for i in stqdm(range(lookback_clusters,X_test.shape[0]),desc="Training Kmeans"):
         kmeans.fit(close_k.iloc[i-lookback_clusters:i].T.values)
         print(kmeans.labels_)
         clusters.append((kmeans.labels_))
