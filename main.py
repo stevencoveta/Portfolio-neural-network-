@@ -188,7 +188,7 @@ def knn(lookback_clustersn, k ):
 list_tk = pd.read_csv("titles_companies.txt")
 
 
-kk = st.sidebar.slider("Number of Clusters",1,29,10)
+kk = st.sidebar.slider("Number of Clusters",1,len(rand),2)
 kn = knn(lookback_clusters, kk)
 
 clusters = kn[0]
@@ -238,7 +238,7 @@ else:
     st.plotly_chart(fig)
 
 
-range_n_clusters = list(range(2,30))
+range_n_clusters = list(range(2,len(rand)))
 clust = []
 for n_clusters in range_n_clusters:
     clusterer = KMeans(n_clusters=n_clusters, random_state=10)
