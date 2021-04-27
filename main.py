@@ -210,7 +210,7 @@ variance.columns = ["Variance"]
 ret_var = pd.concat([returns, variance], axis = 1).dropna()
 
 ret_var["k"] = kmeans_labels_
-ret_var["companies"] = list_tk.columns
+ret_var["companies"] = list_tk
 ret_var.columns = ["Returns","Variance","k","companies"]
 
 st.header("Knn Clusters")
@@ -265,8 +265,8 @@ st.write("Best number of clusters is" , k)
 
 st.header("Correlation heatmap of SP500 Stocks")
 ndf_corr = pd.DataFrame(closes).T.pct_change().dropna().corr()
-ndf_corr.columns = list_tk.columns
-ndf_corr.index = list_tk.columns
+ndf_corr.columns = list_tk
+ndf_corr.index = list_tk
 fig = px.imshow(ndf_corr,labels={
                      "value": "Companies (%)",
                      "index": "Companies",
@@ -326,7 +326,7 @@ sp_test = pd.DataFrame(sp['Adj Close'][-len(y_test)+lookback_clusters:].pct_chan
 sp_date = sp["Date"][-len(y_test)+lookback_clusters:]
 
 close_cum = pd.DataFrame(close_t.cumsum())
-close_cum.columns = list_tk.columns
+close_cum.columns = list_tk
 close_cum.index = sp_date.values
 
 st.header('Stocks returns')
@@ -339,7 +339,7 @@ st.write(fig)
 
 
 port_cum = pd.DataFrame(portfolio_allocator.cumsum())
-port_cum.columns = list_tk.columns
+port_cum.columns = list_tk
 port_cum.index = sp_date.values
 
 st.header('Gains per stocks portfolio')
@@ -352,7 +352,7 @@ st.write(fig)
 
 
 portfolio_allocator_ = portfolio_allocator.copy()
-portfolio_allocator_.columns = list_tk.columns
+portfolio_allocator_.columns = list_tk
 portfolio_allocator_.index = sp_date.values
 st.header("Portfolio allocator weights*returns over time ")
 st.write(portfolio_allocator_)
